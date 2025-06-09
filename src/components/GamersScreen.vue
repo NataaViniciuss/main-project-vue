@@ -11,7 +11,7 @@ const dialogAdd = ref(false);
 const dialogDelete = ref(false);
 const select = ref('Gamers');
 const input = ref();
-const imgGames = ref('../assets/icon-games/Controle.png');
+const imgGames = ref(new URL('../assets/icon-games/Controle.png', import.meta.url).href);
 const listaDeJogos = ref<Games[]>([]);
 const IdEdit = ref<string | null>(null);
 
