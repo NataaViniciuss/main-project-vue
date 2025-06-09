@@ -43,7 +43,7 @@ async function addMovie() {
     imagem: imageUpload.value,
   };
   try {
-    const response = await fetch('http://localhost:3000/MoviePngUpload', {
+    const response = await fetch('https://project-vue-orcin.vercel.app/MoviePngUpload', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ function clearField() {
 
 async function RealoadMovie() {
   try {
-    const response = await fetch('http://localhost:3000/MoviePngUpload');
+    const response = await fetch('https://project-vue-orcin.vercel.app/MoviePngUpload');
     const data = await response.json();
     listaDeFilmes.value = data;
   } catch (error) {
@@ -83,7 +83,7 @@ async function RealoadMovie() {
 
 async function deleteMovie(id: string) {
   try {
-    const response = await fetch(`http://localhost:3000/MoviePngUpload/${id}`, {
+    const response = await fetch(`https://project-vue-orcin.vercel.app/MoviePngUpload/${id}`, {
       method: 'DELETE',
     });
 
@@ -104,7 +104,7 @@ async function EditMovie(id: string) {
     imagem: imageUpload.value,
   };
   try {
-    const response = await fetch(`http://localhost:3000/MoviePngUpload/${id}`, {
+    const response = await fetch(`https://project-vue-orcin.vercel.app/MoviePngUpload/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
