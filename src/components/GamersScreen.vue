@@ -17,7 +17,7 @@ const IdEdit = ref<string | null>(null);
 
 function play(name: string, img: string) {
   select.value = name;
-  imgGames.value = new URL(img, import.meta.url).href;
+  imgGames.value = img;
 }
 function clearField() {
   select.value = 'Gamers';
