@@ -73,7 +73,7 @@ async function addGame() {
 
 async function carregarJogos() {
   try {
-    await fetch('https://project-vue-orcin.vercel.app/TabelaDeJogos');
+    const response await fetch('https://project-vue-orcin.vercel.app/TabelaDeJogos');
     const data = await response.json();
     listaDeJogos.value = data;
   } catch (error) {
@@ -84,7 +84,7 @@ onMounted(carregarJogos);
 
 async function apagarJogos(id: string) {
   try {
-    const response = await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
       method: 'DELETE',
     });
 
