@@ -208,7 +208,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('Pinterest', '../assets/tiktok-CpNpErwL.png')"
+                @click="redeSociais('Pinterest', '../assets/pinterest-RizHWLUV.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
