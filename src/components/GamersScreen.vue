@@ -159,7 +159,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Brawl Stars', '../assets/icon-games/BrawlStars.png')"
+                @click="play('Brawl Stars', '../assets/BrawlStars-CqrhjegT.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
