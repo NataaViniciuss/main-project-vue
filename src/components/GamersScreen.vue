@@ -53,7 +53,7 @@ async function addGame() {
   };
 
   try {
-    await fetch('http://localhost:3000/TabelaDeJogos', {
+    await fetch('https://project-vue-orcin.vercel.app/TabelaDeJogos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ async function addGame() {
 
 async function carregarJogos() {
   try {
-    const response = await fetch('http://localhost:3000/TabelaDeJogos');
+    const response = await fetch('https://project-vue-orcin.vercel.app/TabelaDeJogos');
     const data = await response.json();
     listaDeJogos.value = data;
   } catch (error) {
@@ -82,7 +82,7 @@ onMounted(carregarJogos);
 
 async function apagarJogos(id: string) {
   try {
-    await fetch(`http://localhost:3000/TabelaDeJogos/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
       method: 'DELETE',
     });
 
@@ -100,7 +100,7 @@ async function editarJogo(id: string) {
     descricao: input.value,
   };
   try {
-    await fetch(`http://localhost:3000/TabelaDeJogos/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
