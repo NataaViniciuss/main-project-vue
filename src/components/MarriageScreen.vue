@@ -84,7 +84,7 @@ async function addIdea() {
     select: nameSelect.value,
   };
   try {
-    await fetch('http://localhost:3000/ListaForMarriage', {
+    await fetch('https://project-vue-orcin.vercel.app/ListaForMarriage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ async function addIdea() {
 
 async function reloadList() {
   try {
-    const response = await fetch('http://localhost:3000/ListaForMarriage');
+    const response = await fetch('https://project-vue-orcin.vercel.app/ListaForMarriage');
     const data = await response.json();
     listaDeIdeias.value = data;
   } catch (error) {
@@ -119,7 +119,7 @@ async function editIdea(id: string) {
   };
 
   try {
-    await fetch(`http://localhost:3000/ListaForMarriage/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/ListaForMarriage/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ async function editIdea(id: string) {
 
 async function deleteMovie(id: string) {
   try {
-    await fetch(`http://localhost:3000/ListaForMarriage/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/ListaForMarriage/${id}`, {
       method: 'DELETE',
     });
     await reloadList();
