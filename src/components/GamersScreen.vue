@@ -11,17 +11,17 @@ const dialogAdd = ref(false);
 const dialogDelete = ref(false);
 const select = ref('Gamers');
 const input = ref();
-const imgGames = ref(new URL('../assets/icon-games/Controle.png', import.meta.url).href);
+const imgGames = ref('../assets/icon-games/Controle.png');
 const listaDeJogos = ref<Games[]>([]);
 const IdEdit = ref<string | null>(null);
 
 function play(name: string, img: string) {
   select.value = name;
-  imgGames.value = new URL(img, import.meta.url).href;
+  imgGames.value = img;
 }
 function clearField() {
   select.value = 'Gamers';
-  imgGames.value = new URL('../assets/icon-games/Controle.png', import.meta.url).href;
+  imgGames.value = '../assets/icon-games/Controle.png';
   dialogAdd.value = false;
   input.value = '';
   IdEdit.value = '';
