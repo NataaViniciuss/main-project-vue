@@ -43,17 +43,13 @@ async function addMovie() {
     imagem: imageUpload.value,
   };
   try {
-    const response = await fetch('https://project-vue-orcin.vercel.app/MoviePngUpload', {
+    await fetch('http://localhost:3000/MoviePngUpload', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newMovie),
     });
-
-    if (!response.ok) {
-      throw new Error('Erro ao adicionar filme');
-    }
 
     console.log('Filme salvo com sucesso!');
     await RealoadMovie();
@@ -73,7 +69,7 @@ function clearField() {
 
 async function RealoadMovie() {
   try {
-    const response = await fetch('https://project-vue-orcin.vercel.app/MoviePngUpload');
+    const response = await fetch('http://localhost:3000/MoviePngUpload');
     const data = await response.json();
     listaDeFilmes.value = data;
   } catch (error) {
@@ -83,13 +79,10 @@ async function RealoadMovie() {
 
 async function deleteMovie(id: string) {
   try {
-    const response = await fetch(`https://project-vue-orcin.vercel.app/MoviePngUpload/${id}`, {
+    await fetch(`http://localhost:3000/MoviePngUpload/${id}`, {
       method: 'DELETE',
     });
 
-    if (!response.ok) {
-      throw new Error('Erro ao Deletar o Filme');
-    }
     await RealoadMovie();
     console.log('Filme deletado com Sucesso');
   } catch (erro) {
@@ -104,7 +97,7 @@ async function EditMovie(id: string) {
     imagem: imageUpload.value,
   };
   try {
-    const response = await fetch(`https://project-vue-orcin.vercel.app/MoviePngUpload/${id}`, {
+    await fetch(`http://localhost:3000/MoviePngUpload/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -112,9 +105,6 @@ async function EditMovie(id: string) {
       body: JSON.stringify(filmeEditado),
     });
 
-    if (!response.ok) {
-      throw new Error('Erro ao editar Filme');
-    }
     console.log('Filme editado com sucesso');
     await RealoadMovie();
     clearField();
