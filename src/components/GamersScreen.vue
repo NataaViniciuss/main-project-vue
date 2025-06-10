@@ -61,9 +61,9 @@ async function addGame() {
       body: JSON.stringify(newGame),
     });
 
-    if (!response.ok) {
-      throw new Error('Erro ao salvar o jogo');
-    }
+    //if (!response.ok) {
+     // throw new Error('Erro ao salvar o jogo');
+    //}
 
     console.log('jogo salvo com sucesso!');
     await carregarJogos();
@@ -90,9 +90,9 @@ async function apagarJogos(id: string) {
       method: 'DELETE',
     });
 
-    if (!response.ok) {
-      throw new Error('Erro ao deletar o jogo');
-    }
+    //if (!response.ok) {
+      //throw new Error('Erro ao deletar o jogo');
+    //}
     await carregarJogos();
     console.log('jogo deletado com sucesso');
   } catch (erro) {
@@ -115,9 +115,9 @@ async function editarJogo(id: string) {
       body: JSON.stringify(jogoEditado),
     });
 
-    if (!response.ok) {
-      throw new Error('Erro ao editar o jogo');
-    }
+    //if (!response.ok) {
+      //throw new Error('Erro ao editar o jogo');
+    //}
 
     console.log('Jogo editado com sucesso!');
     await carregarJogos();
