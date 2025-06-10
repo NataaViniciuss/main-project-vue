@@ -84,16 +84,13 @@ async function addIdea() {
     select: nameSelect.value,
   };
   try {
-    const response = await fetch('https://project-vue-orcin.vercel.app/ListaForMarriage', {
+    await fetch('http://localhost:3000/ListaForMarriage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newIdea),
     });
-    if (!response.ok) {
-      throw new Error('Erro ao Salvar Ideai');
-    }
 
     console.log('Ideia salva com sucesso!');
     await reloadList();
@@ -105,7 +102,7 @@ async function addIdea() {
 
 async function reloadList() {
   try {
-    const response = await fetch('https://project-vue-orcin.vercel.app/ListaForMarriage');
+    const response = await fetch('http://localhost:3000/ListaForMarriage');
     const data = await response.json();
     listaDeIdeias.value = data;
   } catch (error) {
@@ -122,17 +119,13 @@ async function editIdea(id: string) {
   };
 
   try {
-    const response = await fetch(`https://project-vue-orcin.vercel.app/ListaForMarriage/${id}`, {
+    await fetch(`http://localhost:3000/ListaForMarriage/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(IdeiaEditada),
     });
-
-    if (!response.ok) {
-      throw new Error('Erro ao editar ideia');
-    }
 
     console.log('Ideia editada com sucesso!');
     await reloadList();
@@ -144,12 +137,9 @@ async function editIdea(id: string) {
 
 async function deleteMovie(id: string) {
   try {
-    const response = await fetch(`https://project-vue-orcin.vercel.app/ListaForMarriage/${id}`, {
+    await fetch(`http://localhost:3000/ListaForMarriage/${id}`, {
       method: 'DELETE',
     });
-    if (!response.ok) {
-      throw new Error('Erro ao deletar ideias');
-    }
     await reloadList();
     console.log('Ideia deletada com sucesso');
   } catch (erro) {
