@@ -21,7 +21,7 @@ function play(name: string, img: string) {
 }
 function clearField() {
   select.value = 'Gamers';
-  imgGames.value = '../assets/icon-games/Controle.png';
+  imgGames.value = 'https://main-project-vue-8um3.vercel.app/assets/Controle-CW-ZSyTc.png';
   dialogAdd.value = false;
   input.value = '';
   IdEdit.value = '';
