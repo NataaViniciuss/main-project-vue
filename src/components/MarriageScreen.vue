@@ -230,7 +230,7 @@ onMounted(reloadList);
     </q-card>
   </q-dialog>
   <div class="column" style="width: 100vw">
-    <div class="q-py-lg" v-for="(item, index) in listaDeIdeias" :key="index" style="margin: 0px 0px 0px -1vw">
+    <div class="q-py-lg" v-for="(item, index) in listaDeIdeias" :key="index" style="margin: 0px -1vw 0px -1vw">
       <q-card style="width: 100%">
         <q-item>
           <q-item-section avatar>
