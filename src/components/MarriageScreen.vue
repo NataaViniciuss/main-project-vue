@@ -166,7 +166,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('Instagram', '../assets/instagram-VUFQ3l_n.png')"
+                @click="redeSociais('Instagram', '../assets/icon-redes-sociais/instagram.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
@@ -180,7 +180,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('Youtube', '../assets/youtube-B2-ob9Jb.png')"
+                @click="redeSociais('Youtube', '../assets/icon-redes-sociais/youtube.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
@@ -194,7 +194,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('TikTok', '../assets/tiktok-CpNpErwL.png')"
+                @click="redeSociais('TikTok', '../assets/icon-redes-sociais/tiktok.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
@@ -208,7 +208,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('Pinterest', '../assets/pinterest-RizHWLUV.png')"
+                @click="redeSociais('Pinterest', '../assets/icon-redes-sociais/pinterest.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
@@ -229,8 +229,8 @@ onMounted(reloadList);
       </q-card-action>
     </q-card>
   </q-dialog>
-  <div class="row">
-    <div class="q-pa-lg" v-for="(item, index) in listaDeIdeias" :key="index">
+  <div class="column">
+    <div class="q-py-lg" v-for="(item, index) in listaDeIdeias" :key="index">
       <q-card style="width: 100%">
         <q-item>
           <q-item-section avatar>
@@ -246,17 +246,17 @@ onMounted(reloadList);
           </q-item-section>
         </q-item>
 
-        <q-video :src="item.link"></q-video>
+        <q-video :src="item.link" style="width: 100%; height: 82vh"></q-video>
         <!-- <div ref="tiktokEmbedContainer">
-          <blockquote
-            class="tiktok-embed"
-            :cite="item.urlTTK"
-            :data-video-id="item.idVideoTTK"
-            style="max-width: 605px; min-width: 325px"
-          >
-            <section></section>
-          </blockquote>
-        </div> -->
+            <blockquote
+              class="tiktok-embed"
+              :cite="item.urlTTK"
+              :data-video-id="item.idVideoTTK"
+              style="max-width: 605px; min-width: 325px"
+            >
+              <section></section>
+            </blockquote>
+          </div> -->
 
         <q-card-actions align="right" class="q-gutter-md">
           <q-btn class="bg-green-7" label="Editar" @click="openEditIdea(item)"></q-btn>
