@@ -229,8 +229,8 @@ onMounted(reloadList);
       </q-card-action>
     </q-card>
   </q-dialog>
-  <div class="column">
-    <div class="q-py-lg" v-for="(item, index) in listaDeIdeias" :key="index">
+  <div class="column" style="width: 100vw">
+    <div class="q-py-lg" v-for="(item, index) in listaDeIdeias" :key="index" style="margin: 0px 0px 0px -1vw">
       <q-card style="width: 100%">
         <q-item>
           <q-item-section avatar>
@@ -246,7 +246,7 @@ onMounted(reloadList);
           </q-item-section>
         </q-item>
 
-        <q-video :src="item.link" style="width: 100%; height: 82vh"></q-video>
+        <q-video :src="item.link" style="width: 100vw; height: 82vh"></q-video>
         <!-- <div ref="tiktokEmbedContainer">
             <blockquote
               class="tiktok-embed"
