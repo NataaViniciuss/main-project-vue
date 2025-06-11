@@ -166,7 +166,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('Instagram', '../assets/icon-redes-sociais/instagram.png')"
+                @click="redeSociais('Instagram', '../assets/instagram-VUFQ3l_n.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
@@ -180,7 +180,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('Youtube', '../assets/icon-redes-sociais/youtube.png')"
+                @click="redeSociais('Youtube', '../assets/youtube-B2-ob9Jb.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
@@ -194,7 +194,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('TikTok', '../assets/icon-redes-sociais/tiktok.png')"
+                @click="redeSociais('TikTok', '../assets/tiktok-CpNpErwL.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
@@ -208,7 +208,7 @@ onMounted(reloadList);
               <q-item
                 clickable
                 v-close-popup
-                @click="redeSociais('Pinterest', '../assets/icon-redes-sociais/pinterest.png')"
+                @click="redeSociais('Pinterest', '../assets/pinterest-RizHWLUV.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar square size="250%">
