@@ -1,6 +1,14 @@
 {
   "TabelaDeJogos": [],
   "MoviePngUpload": [],
-  "ListaForMarriage": [],
+  "ListaForMarriage": [
+    {
+      "id": "fd08",
+      "name": "dsad",
+      "link": "[object Object]embed",
+      "image": "http://localhost:9000/src/assets/instagram-VUFQ3l_n.png",
+      "select": "Instagram"
+    }
+  ],
   "ListForEvents": []
 }

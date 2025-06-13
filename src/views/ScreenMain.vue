@@ -13,7 +13,9 @@ import MoviesScreen from 'src/components/MoviesScreen.vue';
 import MarriageScreen from 'src/components/MarriageScreen.vue';
 import EventsScreen from 'src/components/EventsScreen.vue';
 import RoutineScreen from 'src/components/RoutineScreen.vue';
+import type { Ideas } from 'src/interface/Ideas';
 const tab = ref();
+const ListaDeIdeias = ref<Ideas[]>([]);
 </script>
 <template>
   <div class="q-gutter-y-md">
@@ -38,7 +40,7 @@ const tab = ref();
           <label for="movies">Movies</label>
         </q-tab>
         <q-tab name="marriage" id="marriage">
-          <q-badge color="primary" text-color="white" floating>2</q-badge>
+          <q-badge color="primary" text-color="white" floating>{{ ListaDeIdeias.length }}</q-badge>
           <img
             src="../assets/icons-header/casamento.png"
             alt="Casamento-logo"
