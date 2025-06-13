@@ -13,16 +13,56 @@ import MoviesScreen from 'src/components/MoviesScreen.vue';
 import MarriageScreen from 'src/components/MarriageScreen.vue';
 import EventsScreen from 'src/components/EventsScreen.vue';
 import RoutineScreen from 'src/components/RoutineScreen.vue';
-import type { Ideas } from 'src/interface/Ideas';
+
 const tab = ref();
-const ListaDeIdeias = ref<Ideas[]>([]);
+const listaDeIdeias = ref([]);
+const listaDeFilmes = ref([]);
+const listaDeJogos = ref([]);
+
+async function getListOfIdeas() {
+  try {
+    const response = await fetch('https://project-vue-orcin.vercel.app/ListaForMarriage', {
+      method: 'GET',
+    });
+    const data = await response.json();
+    listaDeIdeias.value = data;
+  } catch (error) {
+    console.error('Erro ao exibir número de Ideias:', error);
+  }
+}
+
+async function getListOfMovies() {
+  try {
+    const response = await fetch('https://project-vue-orcin.vercel.app/MoviePngUpload', {
+      method: 'GET',
+    });
+    const data = await response.json();
+    listaDeFilmes.value = data;
+  } catch (error) {
+    console.error('Erro ao exibir número de Ideias:', error);
+  }
+}
+
+async function getListOfGames() {
+  try {
+    const response = await fetch('https://project-vue-orcin.vercel.app/TabelaDeJogos', {
+      method: 'GET',
+    });
+    const data = await response.json();
+    listaDeJogos.value = data;
+  } catch (error) {
+    console.error('Erro ao exibir número de Ideias:', error);
+  }
+}
 </script>
 <template>
   <div class="q-gutter-y-md">
     <q-card>
       <q-tabs v-model="tab" class="bg-purple text-dark">
         <q-tab name="gamers" id="gamers">
-          <q-badge color="primary" text-color="white" floating>2</q-badge>
+          <q-badge color="primary" text-color="white" v-if="listaDeJogos.length > 0" floating>{{
+            listaDeJogos.length
+          }}</q-badge>
           <img
             src="../assets/icons-header/controle.png"
             alt="Jogos-logo"
@@ -31,7 +71,9 @@ const ListaDeIdeias = ref<Ideas[]>([]);
           <label for="gamers">Gamers</label>
         </q-tab>
         <q-tab name="movies" id="movies">
-          <q-badge color="primary" text-color="white" floating>2</q-badge>
+          <q-badge color="primary" text-color="white" v-if="listaDeFilmes.length > 0" floating>{{
+            listaDeFilmes.length
+          }}</q-badge>
           <img
             src="../assets/icons-header/netflix.png"
             alt="Filmes-logo"
@@ -40,7 +82,9 @@ const ListaDeIdeias = ref<Ideas[]>([]);
           <label for="movies">Movies</label>
         </q-tab>
         <q-tab name="marriage" id="marriage">
-          <q-badge color="primary" text-color="white" floating>{{ ListaDeIdeias.length }}</q-badge>
+          <q-badge color="primary" text-color="white" floating v-if="listaDeIdeias.length > 0">
+            {{ listaDeIdeias.length }}</q-badge
+          >
           <img
             src="../assets/icons-header/casamento.png"
             alt="Casamento-logo"
@@ -70,13 +114,13 @@ const ListaDeIdeias = ref<Ideas[]>([]);
       <q-separator />
       <q-tab-panels v-model="tab">
         <q-tab-panel name="gamers">
-          <GamersScreen />
+          <GamersScreen @on-success="getListOfGames()" />
         </q-tab-panel>
         <q-tab-panel name="movies">
-          <MoviesScreen />
+          <MoviesScreen @on-success="getListOfMovies()" />
         </q-tab-panel>
         <q-tab-panel name="marriage">
-          <MarriageScreen />
+          <MarriageScreen @on-success="getListOfIdeas()" />
         </q-tab-panel>
         <q-tab-panel name="events">
           <EventsScreen />

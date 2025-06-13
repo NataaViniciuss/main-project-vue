@@ -17,6 +17,7 @@ const vImgIdea = computed(() => !!imgIdea.value);
 const listaDeIdeias = ref<Ideas[]>([]);
 const Idedit = ref<string | null>(null);
 const primeiraEtapa = ref();
+const emit = defineEmits(['onSuccess']);
 
 function openEditIdea(idea: Ideas) {
   nameOfIdea.value = idea.name;
@@ -98,6 +99,7 @@ async function addIdea() {
   } catch (error) {
     console.error('Erro ao salvar:', error);
   }
+  emit('onSuccess');
 }
 
 async function reloadList() {
@@ -145,6 +147,7 @@ async function deleteMovie(id: string) {
   } catch (erro) {
     console.error('Erro ao deletar ideia:', erro);
   }
+  emit('onSuccess');
 }
 
 onMounted(reloadList);

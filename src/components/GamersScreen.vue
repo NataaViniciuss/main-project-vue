@@ -2,6 +2,8 @@
 import { useQuasar } from 'quasar';
 import type { Games } from 'src/interface/Games.ts';
 
+const emit = defineEmits(['onSuccess']);
+
 import { computed, onMounted, ref } from 'vue';
 
 const $q = useQuasar();
@@ -61,6 +63,8 @@ async function addGame() {
       body: JSON.stringify(newGame),
     });
 
+    emit('onSuccess');
+
     console.log('jogo salvo com sucesso!');
     await carregarJogos();
     clearField();
@@ -91,6 +95,7 @@ async function apagarJogos(id: string) {
   } catch (erro) {
     console.error(erro);
   }
+  emit('onSuccess');
 }
 
 async function editarJogo(id: string) {
