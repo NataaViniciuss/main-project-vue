@@ -17,7 +17,7 @@ const IdEdit = ref<string | null>(null);
 
 function play(name: string, img: string) {
   select.value = name;
-  imgGames.value = new URL(img, import.meta.url).href;
+  imgGames.value = img;
 }
 function clearField() {
   select.value = 'Gamers';
@@ -53,17 +53,13 @@ async function addGame() {
   };
 
   try {
-    const response = await fetch('https://project-vue-orcin.vercel.app/TabelaDeJogos', {
+    await fetch('https://project-vue-orcin.vercel.app/TabelaDeJogos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newGame),
     });
-
-    if (!response.ok) {
-      throw new Error('Erro ao salvar o jogo');
-    }
 
     console.log('jogo salvo com sucesso!');
     await carregarJogos();
@@ -86,13 +82,10 @@ onMounted(carregarJogos);
 
 async function apagarJogos(id: string) {
   try {
-    const response = await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
       method: 'DELETE',
     });
 
-    if (!response.ok) {
-      throw new Error('Erro ao deletar o jogo');
-    }
     await carregarJogos();
     console.log('jogo deletado com sucesso');
   } catch (erro) {
@@ -107,17 +100,13 @@ async function editarJogo(id: string) {
     descricao: input.value,
   };
   try {
-    const response = await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/TabelaDeJogos/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(jogoEditado),
     });
-
-    if (!response.ok) {
-      throw new Error('Erro ao editar o jogo');
-    }
 
     console.log('Jogo editado com sucesso!');
     await carregarJogos();
@@ -170,7 +159,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Brawl Stars', '../assets/icon-games/BrawlStars.png')"
+                @click="play('Brawl Stars', '../assets/BrawlStars-CqrhjegT.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -184,7 +173,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Minecraft', '../assets/icon-games/Minecraft.png')"
+                @click="play('Minecraft', '../assets/Minecraft-BXFKr58w.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -198,7 +187,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Free Fire', '../assets/icon-games/FreeFire.png')"
+                @click="play('Free Fire', '../assets/FreeFire--6CmJY0f.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -212,7 +201,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Rocket League', '../assets/icon-games/RocketLeague.jpg')"
+                @click="play('Rocket League', '../assets/RocketLeague-BGZYN_ol.jpg')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -226,7 +215,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('God Of War 4', '../assets/icon-games/GOW.jpg')"
+                @click="play('God Of War 4', '../assets/GOW-RTNr5BKQ.jpg')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -240,7 +229,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Red Dead Redemption II', '../assets/icon-games/RDR.png')"
+                @click="play('Red Dead Redemption II', '../assets/RDR-CYAHDE0g.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -254,7 +243,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Marvel Rivals', '../assets/icon-games/MarvelRivals.jpg')"
+                @click="play('Marvel Rivals', '../assets/MarvelRivals-BBueTdnM.jpg')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -268,7 +257,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Cuphead', '../assets/icon-games/Cuphead.png')"
+                @click="play('Cuphead', '../assets/Cuphead-BBZaG5cC.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -282,7 +271,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Fortnite', '../assets/icon-games/Fortnite.jpg')"
+                @click="play('Fortnite', '../assets/Fortnite-Db0kQxUj.jpg')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -296,7 +285,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Boomerang Fu', '../assets/icon-games/BoomerangFu.jpg')"
+                @click="play('Boomerang Fu', '../assets/BoomerangFu-sR1u22-Y.jpg')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">
@@ -310,7 +299,7 @@ async function editarJogo(id: string) {
               <q-item
                 clickable
                 v-close-popup
-                @click="play('Counter-Strike 2', '../assets/icon-games/cs2.png')"
+                @click="play('Counter-Strike 2', '../assets/cs2-CPAUXMfZ.png')"
               >
                 <div class="row q-gutter-sm">
                   <q-avatar size="250%">

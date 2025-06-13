@@ -84,16 +84,13 @@ async function addIdea() {
     select: nameSelect.value,
   };
   try {
-    const response = await fetch('http://localhost:3000/ListaForMarriage', {
+    await fetch('https://project-vue-orcin.vercel.app/ListaForMarriage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newIdea),
     });
-    if (!response.ok) {
-      throw new Error('Erro ao Salvar Ideai');
-    }
 
     console.log('Ideia salva com sucesso!');
     await reloadList();
@@ -105,7 +102,7 @@ async function addIdea() {
 
 async function reloadList() {
   try {
-    const response = await fetch('http://localhost:3000/ListaForMarriage');
+    const response = await fetch('https://project-vue-orcin.vercel.app/ListaForMarriage');
     const data = await response.json();
     listaDeIdeias.value = data;
   } catch (error) {
@@ -122,17 +119,13 @@ async function editIdea(id: string) {
   };
 
   try {
-    const response = await fetch(`http://localhost:3000/ListaForMarriage/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/ListaForMarriage/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(IdeiaEditada),
     });
-
-    if (!response.ok) {
-      throw new Error('Erro ao editar ideia');
-    }
 
     console.log('Ideia editada com sucesso!');
     await reloadList();
@@ -144,12 +137,9 @@ async function editIdea(id: string) {
 
 async function deleteMovie(id: string) {
   try {
-    const response = await fetch(`http://localhost:3000/ListaForMarriage/${id}`, {
+    await fetch(`https://project-vue-orcin.vercel.app/ListaForMarriage/${id}`, {
       method: 'DELETE',
     });
-    if (!response.ok) {
-      throw new Error('Erro ao deletar ideias');
-    }
     await reloadList();
     console.log('Ideia deletada com sucesso');
   } catch (erro) {
@@ -240,7 +230,7 @@ onMounted(reloadList);
     </q-card>
   </q-dialog>
   <div class="column" style="width: 100%">
-    <div class="q-py-md" v-for="(item, index) in listaDeIdeias" :key="index">
+    <div class="q-py-lg" v-for="(item, index) in listaDeIdeias" :key="index">
       <q-card>
         <q-item>
           <q-item-section avatar>
@@ -257,7 +247,6 @@ onMounted(reloadList);
         </q-item>
 
         <q-video :src="item.link" style="width: 100%; height: 82vh"></q-video>
-
         <!-- <div ref="tiktokEmbedContainer">
             <blockquote
               class="tiktok-embed"
